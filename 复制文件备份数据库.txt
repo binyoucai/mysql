@@ -1,0 +1,43 @@
+备份数据库文件地址：C:\ProgramData\MySQL\MySQL Server 5.7\Data下
+
+MyISAM存储引擎 备份方法：复制数据库文件夹
+
+
+
+InnoDB存储引擎 备份方法：复制数据库文件夹+ibdata1
+
+
+
+
+MyISAM存储引擎数据库恢复方法：
+关闭mysql服务
+
+在C:\ProgramData\MySQL\MySQL Server 5.7\Data下删除两个日志文件ib_logfile0 ib_logfile1
+
+复制数据库文件到C:\ProgramData\MySQL\MySQL Server 5.7\Data下
+
+启动mysql服务
+
+
+
+
+InnoDB存储引擎数据库恢复方法：
+
+关闭mysql服务
+
+在C:\ProgramData\MySQL\MySQL Server 5.7\Data下删除两个日志文件ib_logfile0 ib_logfile1
+
+复制数据库文件到C:\ProgramData\MySQL\MySQL Server 5.7\Data下
+
+启动mysql服务
+
+
+
+
+
+
+总结：
+1，在进行mysql数据库备份的或迁移的时候，尽量备份完成所需要的数据；
+2，如果直接拷贝原有数据库文件"*.frm"、"*.MYD"、"*.MYI"等文件时候，如果原数据库引擎是InnoDB，切记还需拷贝ibdata1文件
+3，备份数据库的时候，最好是用相关的工具进行备份或是导出sql文件，以免浪费时间在数据库恢复上
+4，msyql版本或是备份工具的版本不同，也可能引起数据恢复有问题。
